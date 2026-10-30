@@ -80,8 +80,8 @@ a.elf-hero-more:hover,a.elf-hero-more:focus-visible{background:#f3c3e3!important
 a:not([style*="999px"]):not(.elf-header a):hover{text-decoration-thickness:2px;text-underline-offset:3px}
 .elf-qslide{grid-area:1/1;margin:0;font-family:"Fredoka",sans-serif;font-weight:500;font-size:21px;line-height:1.35;transition:opacity 1.2s ease}
 @media (prefers-reduced-motion: reduce){.elf-slide,.elf-qslide{transition:none}html,body{scroll-behavior:auto}a,a::after,a img{transition:none!important}a[style*="999px"]:hover{transform:none}}
-.elf-insta-scroll{scrollbar-width:thin}
-@media (min-width:900px){.elf-insta-scroll{max-width:360px!important;height:540px!important}}
+.elf-feed-box{height:520px;overflow-y:auto;overscroll-behavior:contain;border-radius:16px;border:1px solid #f0d9e8;scrollbar-width:thin}
+@media (max-width:640px){.elf-feed-box{height:460px}}
 </style>
 
 </head>
@@ -403,18 +403,28 @@ a:not([style*="999px"]):not(.elf-header a):hover{text-decoration-thickness:2px;t
         </div>
         <p style="max-width: 30em; color: #6e5468">See what the children have been learning, making and exploring, on our Facebook and Instagram pages.</p>
       </div>
-      <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-          <h3 style="font-size: 24px">Our latest posts</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+        <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+            <h3 style="font-size: 24px">Facebook</h3>
             <a class="elf-app-btn" href="https://www.facebook.com/profile.php?id=100090045807275" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Facebook</a>
-            <a class="elf-app-btn" href="https://www.instagram.com/elf_learningfoundation/" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Instagram</a>
+          </div>
+          <div class="elf-feed-box" id="elf-fb-feed">
+            <div style="height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px; background: #fbf3f8">
+              <p style="color: #6e5468; max-width: 20em">Our news, photos and session updates are on our Facebook page.</p>
+              <a href="https://www.facebook.com/profile.php?id=100090045807275" target="_blank" rel="noopener" style="color: #8f2167; font-weight: 700">See our Facebook posts</a>
+            </div>
           </div>
         </div>
-        <div class="elf-insta-scroll" tabindex="0" aria-label="Our latest Instagram posts, scroll to see more" style="width: 100%; max-width: 480px; margin: 0 auto; height: 640px; max-height: 80vh; overflow-y: auto; overscroll-behavior: contain; border-radius: 16px; border: 1px solid #f0d9e8; background: #ffffff">
-          <behold-widget feed-id="SZ4uyjVhZbBMPztH6jCI"></behold-widget>
+        <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+            <h3 style="font-size: 24px">Instagram</h3>
+            <a class="elf-app-btn" href="https://www.instagram.com/elf_learningfoundation/" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Instagram</a>
+          </div>
+          <div class="elf-feed-box" tabindex="0" aria-label="Our latest Instagram posts, scroll to see more">
+            <behold-widget feed-id="SZ4uyjVhZbBMPztH6jCI"></behold-widget>
+          </div>
         </div>
-        <p style="text-align: center; color: #6e5468; font-size: 14px">Scroll inside the box to see more posts</p>
       </div>
     </div>
   </section>
