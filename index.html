@@ -82,6 +82,8 @@ a:not([style*="999px"]):not(.elf-header a):hover{text-decoration-thickness:2px;t
 @media (prefers-reduced-motion: reduce){.elf-slide,.elf-qslide{transition:none}html,body{scroll-behavior:auto}a,a::after,a img{transition:none!important}a[style*="999px"]:hover{transform:none}}
 .elf-feed-box{height:520px;overflow-y:auto;overscroll-behavior:contain;border-radius:16px;border:1px solid #f0d9e8;scrollbar-width:thin}
 @media (max-width:640px){.elf-feed-box{height:460px}}
+/* Show whole Instagram posts (landscape ones included) instead of cropping them to the tile */
+behold-widget img,behold-widget video{object-fit:contain!important;background:#ffffff}
 </style>
 
 </head>
