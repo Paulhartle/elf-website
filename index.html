@@ -401,27 +401,16 @@ a:not([style*="999px"]):not(.elf-header a):hover{text-decoration-thickness:2px;t
         </div>
         <p style="max-width: 30em; color: #6e5468">See what the children have been learning, making and exploring, on our Facebook and Instagram pages.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
-        <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-            <h3 style="font-size: 24px">Facebook</h3>
+      <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+          <h3 style="font-size: 24px">Our latest posts</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
             <a class="elf-app-btn" href="https://www.facebook.com/profile.php?id=100090045807275" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Facebook</a>
-          </div>
-          <div id="elf-fb-embed" style="min-height: 500px; border-radius: 16px; background: #fbf3f8; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; overflow: hidden">
-            <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; max-width: 22em">
-              <p style="color: #6e5468">See our latest posts here. They load from Facebook, which may set its own cookies.</p>
-              <button type="button" id="elf-fb-load" style="cursor: pointer; border: 2px solid #b43181; background: #ffffff; color: #8f2167; font: inherit; font-weight: 700; padding: 10px 18px; border-radius: 999px">Show Facebook posts</button>
-            </div>
-          </div>
-        </div>
-        <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-            <h3 style="font-size: 24px">Instagram</h3>
             <a class="elf-app-btn" href="https://www.instagram.com/elf_learningfoundation/" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Instagram</a>
           </div>
-          <div style="border-radius: 16px; overflow: hidden; min-height: 300px">
-            <behold-widget feed-id="SZ4uyjVhZbBMPztH6jCI"></behold-widget>
-          </div>
+        </div>
+        <div style="border-radius: 16px; overflow: hidden; min-height: 300px">
+          <behold-widget feed-id="SZ4uyjVhZbBMPztH6jCI"></behold-widget>
         </div>
       </div>
     </div>
@@ -706,23 +695,6 @@ class Component extends DCLogic {
   if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) c.componentDidMount();
 })();
 
-// Facebook posts load only when the visitor asks, so no Facebook cookies are set otherwise.
-(function () {
-  var btn = document.getElementById('elf-fb-load');
-  if (!btn) return;
-  btn.addEventListener('click', function () {
-    var box = document.getElementById('elf-fb-embed');
-    var w = Math.max(180, Math.min(500, box.clientWidth - 8));
-    var page = encodeURIComponent('https://www.facebook.com/profile.php?id=100090045807275');
-    var f = document.createElement('iframe');
-    f.src = 'https://www.facebook.com/plugins/page.php?href=' + page + '&tabs=timeline&width=' + w + '&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
-    f.width = w; f.height = 560; f.title = 'ELF on Facebook';
-    f.style.cssText = 'border:none;overflow:hidden;max-width:100%';
-    f.setAttribute('scrolling', 'no'); f.setAttribute('allowfullscreen', 'true');
-    f.setAttribute('allow', 'clipboard-write; encrypted-media; picture-in-picture; web-share');
-    box.style.padding = '4px'; box.innerHTML = ''; box.appendChild(f);
-  });
-})();
 
 // Instagram posts via Behold (sets no cookies).
 (function () {
