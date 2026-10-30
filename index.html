@@ -82,8 +82,6 @@ a:not([style*="999px"]):not(.elf-header a):hover{text-decoration-thickness:2px;t
 @media (prefers-reduced-motion: reduce){.elf-slide,.elf-qslide{transition:none}html,body{scroll-behavior:auto}a,a::after,a img{transition:none!important}a[style*="999px"]:hover{transform:none}}
 .elf-feed-box{height:520px;overflow-y:auto;overscroll-behavior:contain;border-radius:16px;border:1px solid #f0d9e8;scrollbar-width:thin}
 @media (max-width:640px){.elf-feed-box{height:460px}}
-/* Show whole Instagram posts (landscape ones included) instead of cropping them to the tile */
-behold-widget img,behold-widget video{object-fit:contain!important;background:#ffffff}
 </style>
 
 </head>
@@ -421,7 +419,7 @@ behold-widget img,behold-widget video{object-fit:contain!important;background:#f
             <a class="elf-app-btn" href="https://www.instagram.com/elf_learningfoundation/" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Instagram</a>
           </div>
           <div class="elf-feed-box" tabindex="0" aria-label="Our latest Instagram posts, scroll to see more">
-            <behold-widget feed-id="SZ4uyjVhZbBMPztH6jCI"></behold-widget>
+            <div id="curator-feed-instagram"><a href="https://curator.io" target="_blank" rel="noopener" class="crt-logo crt-tag">Powered by Curator.io</a></div>
           </div>
         </div>
       </div>
@@ -708,10 +706,11 @@ class Component extends DCLogic {
 })();
 
 
-// Instagram posts via Behold (sets no cookies).
+// Instagram posts via Curator.io (separate account from the Facebook feed).
 (function () {
   var s = document.createElement('script');
-  s.type = 'module'; s.src = 'https://w.behold.so/widget.js';
+  s.async = true; s.charset = 'UTF-8';
+  s.src = 'https://cdn.curator.io/published/1ce101b4-7801-4f44-984b-b422661728cf_1wq2dn4w.js';
   document.head.appendChild(s);
 })();
 
