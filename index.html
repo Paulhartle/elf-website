@@ -411,11 +411,8 @@ behold-widget img,behold-widget video{object-fit:contain!important;background:#f
             <h3 style="font-size: 24px">Facebook</h3>
             <a class="elf-app-btn" href="https://www.facebook.com/profile.php?id=100090045807275" target="_blank" rel="noopener" style="text-decoration: none; background: #b43181; color: #ffffff; font-weight: 700; padding: 11px 18px; border-radius: 999px; font-size: 16px">Follow us on Facebook</a>
           </div>
-          <div class="elf-feed-box" id="elf-fb-feed">
-            <div style="box-sizing: border-box; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px; background: #fbf3f8">
-              <p style="color: #6e5468; max-width: 20em">Our news, photos and session updates are on our Facebook page.</p>
-              <a href="https://www.facebook.com/profile.php?id=100090045807275" target="_blank" rel="noopener" style="color: #8f2167; font-weight: 700">See our Facebook posts</a>
-            </div>
+          <div class="elf-feed-box" id="elf-fb-feed" tabindex="0" aria-label="Our latest Facebook posts, scroll to see more">
+            <div id="curator-feed-default-feed-layout"><a href="https://curator.io" target="_blank" rel="noopener" class="crt-logo crt-tag">Powered by Curator.io</a></div>
           </div>
         </div>
         <div style="background: #ffffff; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; min-width: 0">
@@ -715,6 +712,14 @@ class Component extends DCLogic {
 (function () {
   var s = document.createElement('script');
   s.type = 'module'; s.src = 'https://w.behold.so/widget.js';
+  document.head.appendChild(s);
+})();
+
+// Facebook posts via Curator.io.
+(function () {
+  var s = document.createElement('script');
+  s.async = true; s.charset = 'UTF-8';
+  s.src = 'https://cdn.curator.io/published/9c3e1bd3-71b7-45da-a505-6fa135082a82.js';
   document.head.appendChild(s);
 })();
 </script>
