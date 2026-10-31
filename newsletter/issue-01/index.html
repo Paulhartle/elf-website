@@ -25,6 +25,8 @@ a{color:#8f2167}a:hover{color:#5c1752}
 .elf-btn:hover,.elf-btn:focus-visible{background:#5c1752;color:#ffffff}
 .elf-page{display:block;width:100%;height:auto;background:#ffffff;border-radius:14px;box-shadow:0 6px 24px rgba(92,23,82,.12)}
 @media (max-width:760px){body{font-size:17px}h1{font-size:34px!important}}
+.elf-btn-o{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#ffffff;color:#8f2167;border:2px solid #b43181;font:inherit;font-weight:700;padding:10px 20px;border-radius:999px;font-size:17px;cursor:pointer;transition:background-color .25s ease}
+.elf-btn-o:hover,.elf-btn-o:focus-visible{background:#fbe9f3;color:#5c1752}
 </style>
 </head>
 <body>
@@ -42,7 +44,12 @@ a{color:#8f2167}a:hover{color:#5c1752}
       <p style="font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 14px; color: #8f2167">Newsletter: past issue</p>
       <h1 style="font-size: 44px; color: #5c1752">ELF Newsletter Issue #01, Spring 2026</h1>
       <p style="color: #6e5468; max-width: 34em">Our very first newsletter. Tap the page to zoom in, or download a copy to keep. For our newest issue, see the <a href="/newsletter/">latest newsletter</a>.</p>
-      <p><a class="elf-btn" href="/newsletter/issue-01/ELF-Newsletter-Issue-01.pdf" download>Download PDF</a></p>
+      <div class="elf-share" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+        <a class="elf-btn-o" href="/newsletter/issue-01/ELF-Newsletter-Issue-01.pdf" download>Download PDF</a>
+        <a class="elf-btn" href="https://wa.me/?text=Read%20ELF%20Newsletter%20Issue%20%2301%3A%20https%3A//ethereallearningfoundation.org.uk/newsletter/issue-01/" target="_blank" rel="noopener">Share on WhatsApp</a>
+        <button type="button" class="elf-btn-o" data-copy="https://ethereallearningfoundation.org.uk/newsletter/issue-01/">Copy link</button>
+        <button type="button" class="elf-btn-o" data-share="https://ethereallearningfoundation.org.uk/newsletter/issue-01/" data-text="Read ELF Newsletter Issue #01:" hidden>More ways to share</button>
+      </div>
     </div>
     <a href="/newsletter/issue-01/issue-01-page-1.jpg" aria-label="Open the page full size"><img class="elf-page" src="/newsletter/issue-01/issue-01-page-1.jpg" width="1240" height="1754" alt="ELF Newsletter Issue #01: what's been happening at ELF (Eggs and Easter, Signs of Spring, basketball and team games), a visit from the Mayor of Gedling, our next theme Springtime and growth, and announcements. The full text is below." loading="eager"></a>
     <details style="background: #ffffff; border: 1px solid #efd9e8; border-radius: 18px; padding: 18px 22px">
@@ -71,5 +78,9 @@ a{color:#8f2167}a:hover{color:#5c1752}
       <p>The SELF Approach™</p>
     </div>
   </footer>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var u=b.getAttribute('data-copy');var done=function(){b.textContent='Link copied!';setTimeout(function(){b.textContent='Copy link'},2500)};if(navigator.clipboard){navigator.clipboard.writeText(u).then(done,function(){prompt('Copy this link:',u)})}else{prompt('Copy this link:',u)}})});
+if(navigator.share){document.querySelectorAll('[data-share]').forEach(function(b){b.hidden=false;b.addEventListener('click',function(){navigator.share({title:document.title,text:b.getAttribute('data-text'),url:b.getAttribute('data-share')}).catch(function(){})})})}
+</script>
 </body>
 </html>
