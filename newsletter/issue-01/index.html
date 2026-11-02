@@ -82,5 +82,6 @@ a{color:#8f2167}a:hover{color:#5c1752}
 document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var u=b.getAttribute('data-copy');var done=function(){b.textContent='Link copied!';setTimeout(function(){b.textContent='Copy link'},2500)};if(navigator.clipboard){navigator.clipboard.writeText(u).then(done,function(){prompt('Copy this link:',u)})}else{prompt('Copy this link:',u)}})});
 if(navigator.share){document.querySelectorAll('[data-share]').forEach(function(b){b.hidden=false;b.addEventListener('click',function(){navigator.share({title:document.title,text:b.getAttribute('data-text'),url:b.getAttribute('data-share')}).catch(function(){})})})}
 </script>
+<script data-goatcounter="https://ethereallearningfoundation.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
